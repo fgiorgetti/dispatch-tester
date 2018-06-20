@@ -1,0 +1,4 @@
+pyngus
+oslo.messaging
+ombt
+pytest
