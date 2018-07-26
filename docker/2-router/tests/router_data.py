@@ -81,6 +81,10 @@ class AllocatorInfo(object):
         # holds a tuple list composed of (key, cur, max)
         exceeds_list = list()
 
+        # threshold might contain a metric that is not in thresholds dict
+        if threshold is None:
+            return exceeds_list
+
         # iterates through the threshold dict
         for (key, value) in threshold.iteritems():
             #print "%s.%-25s -> CUR = %d | MAX = %d" % (self.typeName, key, self.__dict__[key], value)
@@ -173,6 +177,10 @@ class AllocatorInfo(object):
             'heldByThreads': 256
         },
         'qd_parse_node_t': {
+            'totalAllocFromHeap': 256,
+            'heldByThreads': 256
+        },
+        'qd_pn_free_link_session_t': {
             'totalAllocFromHeap': 256,
             'heldByThreads': 256
         },
